@@ -48,6 +48,10 @@ public class Mercado {
 	 */
 	public void decrementarStockDe(Producto producto) {
 		
-		this.listaDeProductos.remove(producto);
+		if(this.listaDeProductos.contains(producto))
+			this.listaDeProductos.remove(producto);
+		else 
+			//mensaje de error
+			System.out.print("No existe el producto ingresado");
 	}
 }

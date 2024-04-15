@@ -16,8 +16,6 @@ class TestCajaYMercado {
 	private ProductoCooperativa productoC1;
 	private ProductoCooperativa productoC2;
 	private ProductoCooperativa productoC3;
-	private Cliente cliente1;
-	private Cliente cliente2;
 	
 	@BeforeEach
 	void setUp() {
@@ -34,8 +32,6 @@ class TestCajaYMercado {
 		productoC2 = new ProductoCooperativa("Pan", 1300);
 		productoC3 = new ProductoCooperativa("Licor", 1800);
 		
-		cliente1 = new Cliente("Nico");
-		cliente2 = new Cliente("Ailu");
 	
 		mercadito.registrarCaja(caja1);
 		mercadito.registrarCaja(caja2);
@@ -46,15 +42,13 @@ class TestCajaYMercado {
 		mercadito.registraProducto(productoC2);
 		mercadito.registraProducto(productoC3);
 		
-		cliente1.agregarProducto(producto1);
-		cliente1.agregarProducto(producto2);
-		cliente1.agregarProducto(producto3);
-		cliente2.agregarProducto(productoC1);
-		cliente2.agregarProducto(productoC2);
-		cliente2.agregarProducto(productoC3);
 		
-		caja1.registrarProductos(cliente1);
-		caja2.registrarProductos(cliente2);
+		caja1.registrarProductos(producto1);
+		caja1.registrarProductos(producto2);
+		caja1.registrarProductos(producto3);
+		caja2.registrarProductos(productoC1);
+		caja2.registrarProductos(productoC2);
+		caja2.registrarProductos(productoC3);
 	}
 	
 	@Test
@@ -73,10 +67,7 @@ class TestCajaYMercado {
 	}
 	@Test
 	void testCantidadProductosDelMercado() {
-		
-		assertEquals(6,mercadito.revisarStock());
-		caja1.limpiarCaja();
-		caja2.limpiarCaja();
+	
 		assertEquals(0,mercadito.revisarStock());
 	}
 }

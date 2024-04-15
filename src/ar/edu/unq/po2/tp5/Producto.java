@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp5;
 
-public class Producto {
+public class Producto implements Factura{
 
 	// Instancia de Variables
 	private String nombre;
@@ -38,4 +38,19 @@ public class Producto {
 		
 		return precio;
 	}
+	/*
+	 * Retorn el precio del Producto.Existe esta funcion para lograr el polimorfismo.
+	 */
+	public double montoAPagar() {
+		
+		return this.getPrecio();
+	}
+	/*
+	 * Retora false ya que no es una Factura.
+	 */
+	public boolean esFactura() {
+		
+		return false;
+	}
+	
 }

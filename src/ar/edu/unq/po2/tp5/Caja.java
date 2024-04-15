@@ -1,34 +1,33 @@
 package ar.edu.unq.po2.tp5;
 
-import java.util.List;
-import java.util.ArrayList;
 
-public class Caja {
+public class Caja implements Agencia{
 
 	// Instancia de Variables
 	private Mercado mercado;
 	private double montoTotal = 0;
-	private List<Producto> listaDeProductos;
 	
 	// Constructor 
 	public Caja(Mercado mercado) {
 		
 		this.mercado = mercado;
-		this.listaDeProductos = new ArrayList<Producto>();
 	}
 	
 	// Metodos
 	
 	/*
-	 * Guarda en 'listaDeProductos' cada producto del cliente ingresado por parametro.
+	 * Acumula el precio del producto ingresado por parametro y llama el metodo 'decrementarStockDe' 
+	 * de nuestra variable 'mercado'.
+	 * Ahora ademas registra el pago de servicios/impuestos.
 	 */
-	public void registrarProductos(Cliente cliente) {
+	public void registrarProductos(Factura factura) {
 		
-		List<Producto> productoDelCliente = cliente.getListaDeProductos();
-		for (Producto producto : productoDelCliente) {
-			this.listaDeProductos.add(producto);
-		}
-		
+		montoTotal += factura.montoAPagar();
+		if(!factura.esFactura())
+			this.mercado.decrementarStockDe((Producto)factura);
+		else
+			this.registrarPago(factura);
+				
 	}
 	
 	/*
@@ -37,9 +36,6 @@ public class Caja {
 	 */
 	public double montoTotalAPagar() {
 		
-		for (Producto producto : listaDeProductos) {
-			montoTotal += producto.getPrecio();
-		}
 		return montoTotal;
 	}
 	
@@ -50,10 +46,14 @@ public class Caja {
 	public void limpiarCaja() {
 		
 		this.montoTotal = 0;
-		for (Producto producto : listaDeProductos) {
-			this.mercado.decrementarStockDe(producto);
-		}
-		this.listaDeProductos.clear();
+
+	}
+	
+	/*
+	 * Avisa a la Agencia sobre el pago del servicio/impuesto.
+	 */
+	public void registrarPago(Factura factura) {
+		// No se bien como reprensentarlo. Podria ser agencia.recaudar(factura.montoAPager());
 	}
 	
 }
