@@ -53,7 +53,8 @@ public class Caja implements Agencia{
 	 * Avisa a la Agencia sobre el pago del servicio/impuesto.
 	 */
 	public void registrarPago(Factura factura) {
-		// No se bien como reprensentarlo. Podria ser agencia.recaudar(factura.montoAPager());
+		// No se bien como reprensentarlo. 
+		//Podria ser agencia.recaudar(factura.montoAPager());
 	}
 	
 }
