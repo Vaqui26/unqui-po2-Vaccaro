@@ -59,7 +59,7 @@ class CounterTestCase {
 	@Test
 	public void testMultiplos() {
 		
-		int chequear1 = counter.multiplosEntre(2,4);
+		int chequear1 = counter.multiplosEntre(2,5);
 		int chequear2 = counter.multiplosEntre(3,9);
 		assertEquals(chequear1, -1);
 		assertEquals(chequear2, 999);
