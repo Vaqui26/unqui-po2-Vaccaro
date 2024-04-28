@@ -16,7 +16,7 @@ public class CreditoPersonal extends SolicitudDeCredito implements ValidacionAnu
 	 */
 	public boolean chequeoDeSolicitud() {
 		
-		return this.validacionIngresoAnual() && !(this.validacionCuotaMensual());
+		return this.validacionIngresoAnual() && this.validacionCuotaMensual();
 		
 	}
 	/*
@@ -27,11 +27,11 @@ public class CreditoPersonal extends SolicitudDeCredito implements ValidacionAnu
 		return this.getSolicitante().getSueldoAnual() >= 15000;
 	}
 	/*
-	 * Indica verdadero si la cuotaMensual supera el 70% del sueldo mensual del cliente.
+	 * Indica verdadero si la el 70% del sueldo mensual del cliente es mayor a la cuota mensual.
 	 */
 	public boolean validacionCuotaMensual() {
 		
 		double baseMinimaDelSueldo = this.getSolicitante().getSueldoMensual() * 0.70;
-		return baseMinimaDelSueldo < this.getMontoCuota();
+		return baseMinimaDelSueldo > this.getMontoCuota();
 	}
 }

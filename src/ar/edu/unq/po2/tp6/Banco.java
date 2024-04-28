@@ -39,7 +39,8 @@ public class Banco {
 		
 		double acumulador = 0;
 		for (SolicitudDeCredito solicitud: solicitudesDeCredito) {
-			acumulador += solicitud.getMontoTotal();
+			if(solicitud.chequeoDeSolicitud())
+				acumulador += solicitud.getMontoTotal();
 		}
 		return acumulador;
 	}
