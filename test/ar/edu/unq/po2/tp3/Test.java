@@ -7,12 +7,12 @@ public class Test {
 
 	public static void main(String[] args) {
 		String a = "2C";
-		String s = "2T";
+		String s = "10T";
 		String t;
 		int n1;
 		Integer n2 = 2;
 		
-		System.out.println((a.substring(0,1)).equals(s.substring(0,1)));
+		System.out.println(s.substring(2,3));
 	}
 //	public static void main(String[] args) {
 //		List<Integer> lista = new ArrayList<Integer>();
