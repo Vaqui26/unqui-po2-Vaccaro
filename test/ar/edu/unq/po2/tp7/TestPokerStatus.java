@@ -169,4 +169,75 @@ class TestPokerStatus {
 		assertEquals("Color",verificadorRonda.verificar(carta1D, carta10D, cartaKD, carta5D, cartaJD));
 	}
 
+	@Test
+	void testVerificarGanadorConPoker() {
+		
+		//SetUp(creado con el metodo setUp())
+		
+		//Exercise, en este caso no requiere
+		
+		//Verify
+		
+		//Mano poker contra nada.
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1P,carta1T,carta1D,carta1P,cartaKD,carta2P,carta3T,cartaKC,carta9T,carta3C));
+		//Mano poker contra color
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1P,carta1T,carta1D,carta1P,carta5D,carta2T,carta3T,cartaKT,carta9T,carta3C));
+		//Mano poker contra trio
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1P,carta1T,carta1D,carta1P,carta5D,carta2T,carta3T,cartaKT,carta3D,carta3C));
+		//Mano poker empate ganador contra poker
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1P,carta1T,carta1D,carta1P,carta5D,carta2T,carta2C,carta2D,carta2P,carta3C));
+		//Mano poker pierde contra otra mano con poker mayor 
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta5P,carta5T,carta5P,carta1D,carta5D,cartaKC,cartaKD,cartaKT,carta3D,cartaKP));
+	}
+	@Test 
+	void testVerificarGanadorConColor() {
+		//SetUp(creado con el metodo setUp())
+		
+		//Exercise, en este caso no requiere
+		
+		//Verify
+		
+		//Mano color gana contra nada
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta2D,carta3D,carta4D,carta5D,carta2P,carta3T,cartaKC,carta9T,carta3C));
+		//Mano color gana contra trio
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta2D,carta3D,carta4D,carta5D,carta3P,carta3T,cartaKC,carta9T,carta3C));
+		//Mano color pierde contra poker
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta1D,carta2D,carta3D,carta4D,carta5D,carta1P,carta1T,carta1D,carta1P,cartaKD));
+		//Mano color gana contra color por mayor valor de carta numerica
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta2D,carta3D,carta4D,carta5D,carta2C,cartaQC,cartaKC,carta9C,carta3C));
+		//Mano color pierda contra color por menor valor de carta numerica
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta2C,cartaQC,cartaKC,carta9C,carta3C,carta1D,carta2D,carta3D,carta4D,carta5D));
+	}
+	@Test
+	void testVerificarGanadorConTrio() {
+		//SetUp(creado con el metodo setUp())
+		
+		//Exercise, en este caso no requiere
+		
+		//Verify
+		
+		//Mano trio gana contra nada
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta1C,carta1T,carta2D,cartaJD,carta1P,carta5D,carta9P,cartaKD,cartaJT));
+		//Mano trio pierde contra poker
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta1D,carta1C,carta1T,carta2D,cartaJD,cartaKC,cartaKT,cartaKP,cartaKD,cartaJT));
+		//Mano trio pierde contra color
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta1D,carta1C,carta1T,carta2D,cartaJD,carta2C,carta5C,cartaKC,cartaQC,cartaJC));
+		//Mano trio gana contra trio por mayor valor numerico de carta
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta1C,carta1T,carta2D,cartaJD,cartaKC,carta5D,cartaKP,cartaKD,cartaJT));
+		//Mano trio pierda contra trio poe menor valor numerico de carta
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta2D,carta2C,carta2T,carta2D,cartaJD,carta5C,carta5D,carta5P,cartaKD,cartaJT));
+	}
+	@Test
+	void testVerificarGanadorSinNada() {
+		//SetUp(creado con el metodo setUp())
+		
+		//Exercise, en este caso no requiere
+		
+		//Verify
+		
+		//Mano sin nada gana contra nada por mayor valor numerico de carta
+		assertTrue(verificadorRonda.verificarSiManoGanaContra(carta1D,carta2D,cartaKT,cartaJD,carta5T,cartaKD,cartaQP,carta10T,carta2T,carta6P));
+		//Mano sin nada pierda contra nada por menor valor numerico de carta
+		assertFalse(verificadorRonda.verificarSiManoGanaContra(carta2T,carta2D,carta7T,carta6T,carta5T,cartaKD,cartaQP,carta10T,carta2T,carta6P));
+	}
 }
