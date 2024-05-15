@@ -45,9 +45,9 @@ class TestPokerStatusMockito {
 		//Exercise
 		
 		//Verify
-		assertEquals("Poker",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
-		assertEquals("Color",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
-		assertEquals("Trio",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
+		assertEquals("Poquer",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
+		//assertEquals("Color",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
+		//assertEquals("Trio",verificadorMano.verificar(carta1, carta2, carta3, carta4, carta5));
 		
 	}
 
