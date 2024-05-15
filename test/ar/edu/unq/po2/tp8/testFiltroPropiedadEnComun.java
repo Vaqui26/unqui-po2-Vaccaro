@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tp8;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ class testFiltroPropiedadEnComun {
 		listaAFiltrar.add(pagina3);
 		listaAFiltrar.add(pagina4);
 		when(pagina1.getInfobox()).thenReturn(map<"birth_place",pagina2>,map<"birth_place",pagina2>,
-				map<"birth_place",pagina2>,);
+				map<"birth_place",pagina2>);
 		when(pagina2.getInfobox()).thenReturn(map<"birth_place",pagina4>);
 		when(pagina3.getInfobox()).thenReturn(map<"fall_sleeping",pagina1>);
 		when(pagina4.getInfobox()).thenReturn(map<"birth_place",pagina2>);
