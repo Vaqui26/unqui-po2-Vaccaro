@@ -28,9 +28,15 @@ public class RegionDividida extends Region{
 	 * Agrega una region a la lista en caso de que haya menos de 5 elementos.
 	 * No contempla si son todos iguales.
 	 */
+	@Override
 	public void agregarRegion(Region region) {
 		
 		if(listaDeRegiones.size() <= 4)
 			this.listaDeRegiones.add(region);
+	}
+	@Override
+	public void borrarRegion(Region region) {
+		
+		this.listaDeRegiones.remove(region);
 	}
 }

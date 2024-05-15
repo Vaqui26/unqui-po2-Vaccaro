@@ -10,4 +10,10 @@ public abstract class Region {
 	 */
 	public abstract int ganancias();
 	
+	public void agregarRegion(Region region) {
+		
+	}
+	public void borrarRegion(Region region) {
+		
+	}
 }
